@@ -1,2 +1,5 @@
 # hello-world
-A first repo to test GitHub
+
+Hi all!
+
+Johan here, trying it out. Catching up. 
