@@ -4,25 +4,25 @@
     <title>Routes</title>
     <meta charset="utf-8"/>
     <style>
-    body {
-      font-family: sans-serif;
-      margin: 100px;
-    }
-    h1, h2 {
-      color: navy;
-    }
-    table {
-      margin-bottom: 2em;
-      width: 100%;
-      border-collapse: collapse;
-    }
-    table, td, th {
-      border: 1px solid black;
-    }
-    td, th {
-      padding: 4px;
-    }
-    tr:nth-child(even){background-color: #eee}
+      body {
+        font-family: sans-serif;
+        margin: 100px;
+      }
+      h1, h2 {
+        color: navy;
+      }
+      table {
+        margin-bottom: 2em;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table, td, th {
+        border: 1px solid black;
+      }
+      td, th {
+        padding: 4px;
+      }
+      tr:nth-child(even){background-color: #eee}
     </style>
   </head>
 
@@ -429,51 +429,24 @@ var routesTable = document.getElementById('routesTable');
 
 for (var i = 0; i < routesData.length; i++) {
   var row = document.createElement('tr');
-
-  var col = document.createElement('td');
-  col.innerText = routesData[i].description;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].method;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].route;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].expReqHeader;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].expReqBody;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respCodeOnSuccess;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respHeaderOnSuccess;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respBodyOnSuccess;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respCodeOnFail;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respHeaderOnFail;
-  row.append(col);
-
-  col = document.createElement('td');
-  col.innerText = routesData[i].respBodyOnFail;
-  row.append(col);
-
+  var col;
+  for (column of [
+    'description',
+    'method',
+    'route',
+    'expReqHeader',
+    'expReqBody',
+    'respCodeOnSuccess',
+    'respHeaderOnSuccess',
+    'respBodyOnSuccess',
+    'respCodeOnFail',
+    'respHeaderOnFail',
+    'respBodyOnFail'
+  ]) {
+    col = document.createElement('td');
+    col.innerText = routesData[i][column];
+    row.append(col);
+  }
   routesTable.append(row);
 }
 </script>
